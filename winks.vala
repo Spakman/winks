@@ -142,7 +142,7 @@ public class winks: Window {
 	private bool ProcessKeyPress( Gdk.EventKey KeyPressed ) {
 		string performed_action = "";
 		switch (KeyPressed.str.up ()) {
-			case "R":
+			case "U":
 				this.web_view.reload ();
 				performed_action = "Page reloaded";
 			break;
@@ -164,11 +164,6 @@ public class winks: Window {
 			case "H":
 				this.web_view.open (winks.HOME_URL);
 				performed_action = "Homepage Loaded";
-			break;
-
-			case "U":
-				this.url_bar.grab_focus ();
-				performed_action = "Edit URL and hit Enter";
 			break;
 
 			case "I":
