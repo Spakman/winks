@@ -14,7 +14,7 @@ using Soup;
 public class winks: Window {
 
 	private const string TITLE = "winks";
-	private const string HOME_URL = "http://www.google.co.uk/";
+	private const string HOME_URL = "http://twitter.com/";
 	private const string DEFAULT_PROTOCOL = "http";
 	private const string VERSION_STRING = "Winks 0.01";
 
@@ -98,7 +98,10 @@ public class winks: Window {
 		top_bar.add (this.url_bar);
 		top_bar.add (this.status_bar);
 		var main_area = new VBox (false, 0);
+		/*
+		 * The line below displays the address bar.
 		main_area.pack_start (top_bar, false, true, 0);
+		*/
 		main_area.add (this.scrolled_window);
 		add (main_area);
 	}
@@ -116,7 +119,7 @@ public class winks: Window {
 		(source, frame, request, action, decision) => {
 			this.status_bar.set_text ("Opening New Window | "+VERSION_STRING);
 			try {
-				GLib.Process.spawn_command_line_async ("winks "+request.get_uri ());
+				GLib.Process.spawn_command_line_async ("gnome-open "+request.get_uri ());
 			} catch (GLib.SpawnError e) {
 				stderr.printf ("Could not spawn new process: %s\n", e.message);
 			}
